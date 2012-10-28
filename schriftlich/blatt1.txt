@@ -1,0 +1,21 @@
+Aufgabe 1.1: Topologien
+a) Wie viele verschiedene kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d? Wie viele Wegalternativen für kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d?
+ - d*(d-1)^(k-1)
+   Begründung: An jedem Knoten kann man sich in (d-1) Richtungen (jede ausser der Rückrichtung) bewegen. Das Ganze wird k mal wiederholt.
+   Eine Ausnahme bildet der erste Schritt, bei dem in d Richtungen gegangen werden kann.
+b) Der in der Vorlesung gezeigte Broadcast für Hypercubes erzeugt einen Spannbaum. Wie viele verschiedene Spannbäume sind möglich, wenn man die Reihenfolge der d Dimensionen variiert? Wie können verschiedene Broadcasts parallel ablaufen, ohne dass es dabei zu einer Überlagerung kommt?
+ - d! (d Fakultät)
+   Begründung: 
+
+
+Aufgabe 1.2: Fluten mit Bestätigung
+	Implementieren Sie mit Hilfe des Simulationsframeworks teachnet (zu finden in ISIS) den Flutungsalgorithmus mit Bestätigung.
+	 - Meine Lösung hierzu lässt sich mit der Konfigurationsdatei blatt1-aufgabe2.txt ansehen.
+	Testen Sie den Algorithmus auf einem Ring und vergleichen Sie die Nachrichtenanzahl mit dem "Broadcast auf unidirektionalen Ringen" auf derselben Topologie.
+	 - Bei den 6 Knoten und 10 Kanten im Beispielnetz gab es mit dem Flutungsalgorithmus mit Bestätigung wie erwartet 30 Nachrichten.
+	   Broadcast auf Unidirektionalen Ringen würde bei einem (logischen) Ring von 6 Knoten nur 6 Nachrichten zur Verbreitung der Information (inklusive Bestätigung durch Vollendung des Zyklus) benötigen.
+
+Aufgabe 1.3: Echo Algorithmus
+	Implementieren Sie mit Hilfe von teachnet den Echo-Algorithmus und überprüfen Sie die Richtigkeit der Nachrichtenanzahl (2e).
+	 - Meine Lösung hierzu lässt sich mit der Konfigurationsdatei blatt1-aufgabe3.txt ansehen.
+	   Beim Beispielnetz (10 Kanten) ergibt sich die korrekte Nachrichtenzahl von 20.
