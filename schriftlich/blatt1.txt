@@ -1,8 +1,7 @@
 Aufgabe 1.1: Topologien
 a) Wie viele verschiedene kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d? Wie viele Wegalternativen für kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d?
- - d*(d-1)^(k-1)
-   Begründung: An jedem Knoten kann man sich in (d-1) Richtungen (jede ausser der Rückrichtung) bewegen. Das Ganze wird k mal wiederholt.
-   Eine Ausnahme bildet der erste Schritt, bei dem in d Richtungen gegangen werden kann.
+ - (d!)/((d-k)!)
+   Begründung: Am ersten Knoten kann man sich in d Richtungen bewegen, am 2. Knoten d-1 usw. bis zum k-ten Schritt, bei dem man (d-k+1) Wahlmöglichkeiten hat. Es ergibt sich also die obenstehende abgeschnittene Fakultät.
 b) Der in der Vorlesung gezeigte Broadcast für Hypercubes erzeugt einen Spannbaum. Wie viele verschiedene Spannbäume sind möglich, wenn man die Reihenfolge der d Dimensionen variiert? Wie können verschiedene Broadcasts parallel ablaufen, ohne dass es dabei zu einer Überlagerung kommt?
  - d! (d Fakultät)
    Begründung: 
