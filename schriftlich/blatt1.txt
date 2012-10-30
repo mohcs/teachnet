@@ -9,7 +9,8 @@ b) Der in der Vorlesung gezeigte Broadcast für Hypercubes erzeugt einen Spannbau
       Begründung: 
       Im ersten Schritt kann man in d Richtungen gehen. In jedem folgenden Schritt ist eine Dimension weniger übrig. Also d! Möglichkeiten.
    Wie können verschiedene Broadcasts parallel ablaufen, ohne dass es dabei zu einer Überlagerung kommt?
-
+    - d Broadcasts können parallel ablaufen.
+      Begründung: Wir benutzen das in der Vorlesung gezeigte Verfahren und wecheseln die Reihenfolge der Dimensionen dabei je Broadcast (Broadcast 1: Dim 1 -> Dim 2 -> Dim 3, Broadcast 2: Dim 2 -> Dim 3 -> Dim 1, Broadcast 3: Dim 3 -> Dim 1 -> Dim 2). Dabei ist immer nur eine Nachricht pro Zeiteinheit auf einem Kanal unterwegs, wenn jede Nachricht genau eine Zeiteinheit dauert und es egal ist, in welcher Reihenfolge die Broadcast-Nachrichten auf den Knoten ankommen.
 
 Aufgabe 1.2: Fluten mit Bestätigung
 	Implementieren Sie mit Hilfe des Simulationsframeworks teachnet (zu finden in ISIS) den Flutungsalgorithmus mit Bestätigung.
