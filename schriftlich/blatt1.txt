@@ -1,6 +1,7 @@
 Aufgabe 1.1: Topologien
 a) Wie viele verschiedene kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d?
-    - 
+    - f(k,d) = (n über k)*2^(n-k)
+    f(1,d) = n*2^(n-1)
    Wie viele Wegalternativen für kürzeste Wege der Länge k gibt es auf einem Hypercube der Dimension d?
     - (d!)/((d-k)!)
       Begründung: Am ersten Knoten kann man sich in d Richtungen bewegen, am 2. Knoten d-1 usw. bis zum k-ten Schritt, bei dem man (d-k+1) Wahlmöglichkeiten hat. Es ergibt sich also die obenstehende abgeschnittene Fakultät.
@@ -15,7 +16,7 @@ b) Der in der Vorlesung gezeigte Broadcast für Hypercubes erzeugt einen Spannbau
 Aufgabe 1.2: Fluten mit Bestätigung
 	Implementieren Sie mit Hilfe des Simulationsframeworks teachnet (zu finden in ISIS) den Flutungsalgorithmus mit Bestätigung.
 	 - Meine Lösung hierzu lässt sich mit der Konfigurationsdatei blatt1-aufgabe2.txt ansehen.
-	Testen Sie den Algorithmus auf einem Ring und vergleichen Sie die Nachrichtenanzahl mit dem "Broadcast auf unidirektionalen Ringen" auf derselben Topologie.
+	   Testen Sie den Algorithmus auf einem Ring und vergleichen Sie die Nachrichtenanzahl mit dem "Broadcast auf unidirektionalen Ringen" auf derselben Topologie.
 	 - Bei den 6 Knoten und 10 Kanten im Beispielnetz gab es mit dem Flutungsalgorithmus mit Bestätigung wie erwartet 30 Nachrichten.
 	   Broadcast auf Unidirektionalen Ringen würde bei einem (logischen) Ring von 6 Knoten nur 6 Nachrichten zur Verbreitung der Information (inklusive Bestätigung durch Vollendung des Zyklus) benötigen.
 
