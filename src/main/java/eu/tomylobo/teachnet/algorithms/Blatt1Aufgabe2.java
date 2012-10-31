@@ -33,7 +33,10 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 	}
 
 	public void initiate() {
+		// Der Startknoten ist immer informiert.
 		setInformed(true);
+		// Anfangs wird ein Explorer auf jede mit dem Startknoten verbundene Kante gesendet.
+		// 'explore' übernimmt dabei auch das markieren der Interfaces mit ausstehenden Antworten.
 		for (int i = 0; i < checkInterfaces(); ++i) {
 			explore(i);
 		}
@@ -41,32 +44,39 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 
 	public void receive(int interf, Object message) {
 		if (message instanceof ExplorerMessage) {
-			if (!informed) {
-				sourceInterface = interf;
-				setInformed(true);
-				for (int i = 0; i < checkInterfaces(); ++i) {
-					if (i == interf)
-						continue;
-
-					explore(i);
-				}
-			}
-			else {
+			// Wenn ein Explorer empfangen wird, checken wir zunächst, ob wir bereits informiert wurden.
+			if (informed) {
+				// Wenn ja, senden wir sofort eine Bestätigung zurück und sind fertig
 				confirm(interf);
-				update();
 				return;
+			}
+
+			// Ansonsten ist dies der erste Explorer den wir empfangen und wir merken uns woher er kam.
+			sourceInterface = interf;
+
+			// Ausserdem markieren wir den Knoten als informiert.
+			setInformed(true);
+
+			// Und schliesslich senden wir weitere Explorer auf allen verbleibenden Interfaces aus.
+			for (int i = 0; i < checkInterfaces(); ++i) {
+				if (i == interf)
+					continue;
+
+				explore(i);
 			}
 		}
 		else if (message instanceof ConfirmationMessage) {
+			// Wenn wir eine Bestätigungsmeldung bekommen, haken wir das entsprechende Interface ab.
 			pending.remove(interf);
 			update();
 		}
 
-		if (informed && pending.isEmpty()) {
+		// Keine ausstehenden Antworten?
+		if (pending.isEmpty()) {
+			// Ja => Bestätigung an das Interface des ersten Explorers schicken
+			// Dieser Fall tritt ein, wenn ein Explorer von einem Blattknoten empfangen wird oder die letzte Bestätigungsmeldung eingegangen ist.
 			confirm(sourceInterface);
 		}
-
-		update();
 	}
 
 	public void setInformed(boolean informed) {

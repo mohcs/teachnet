@@ -18,14 +18,14 @@ public class GenericMessageRenderer extends MessageRenderer {
 		String caption = null;
 		Shape shape = null;
 
-		if ((status.payload instanceof Boolean)) {
+		if (status.payload instanceof Boolean) {
 			final boolean b = ((Boolean) status.payload).booleanValue();
 			color = b ? Color.GREEN : Color.RED;
 		}
 
-		if ((status.payload instanceof Color)) {
+		if (status.payload instanceof Color) {
 			color = (Color) status.payload;
-		} else if ((status.payload instanceof String)) {
+		} else if (status.payload instanceof String) {
 			caption = (String) status.payload;
 		} else {
 			caption = status.payload.toString();

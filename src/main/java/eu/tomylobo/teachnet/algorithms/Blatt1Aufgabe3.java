@@ -27,6 +27,7 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
+		// Anfangs markieren wir alle Interfaces aller Knoten.
 		for (int i = 0; i < checkInterfaces(); ++i) {
 			pending.add(i);
 		}
@@ -35,17 +36,26 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 	}
 
 	public void initiate() {
+		// Der Startknoten ist immer informiert.
 		setInformed(true);
+		// Anfangs wird ein Explorer auf jede mit dem Startknoten verbundene Kante gesendet.
+		// 'explore' übernimmt dabei auch das markieren der Interfaces mit ausstehenden Antworten.
 		for (int i = 0; i < checkInterfaces(); ++i) {
 			explore(i);
 		}
 	}
 
 	public void receive(int interf, Object message) {
-		if (!informed) {
-			sourceInterface = interf;
-			if (message instanceof EchoExplorerMessage) {
+		if (message instanceof EchoExplorerMessage) {
+			// Wenn ein Explorer empfangen wird, checken wir zunächst, ob wir bereits informiert wurden.
+			if (!informed) {
+				// Dies ist der erste Explorer den wir empfangen und wir merken uns woher er kam.
+				sourceInterface = interf;
+
+				// Ausserdem markieren wir den Knoten als informiert.
 				setInformed(true);
+
+				// Und schliesslich senden wir weitere Explorer auf allen verbleibenden Interfaces aus.
 				for (int i = 0; i < checkInterfaces(); ++i) {
 					if (i == interf)
 						continue;
@@ -55,13 +65,15 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 			}
 		}
 
+		// Sowohl bei einem Explorer als auch einem Echo haken wir das entsprechende Interface ab.
 		pending.remove(interf);
-
-		if (pending.isEmpty()) {
-			confirm(sourceInterface);
-		}
-
 		update();
+
+		// Keine ausstehenden Antworten?
+		if (pending.isEmpty()) {
+			// Ja => Echo an das Interface des ersten Explorers schicken
+			echo(sourceInterface);
+		}
 	}
 
 	public void setInformed(boolean informed) {
@@ -71,10 +83,9 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 
 	private void explore(int interf) {
 		send(interf, new EchoExplorerMessage());
-		update();
 	}
 
-	private void confirm(int interf) {
+	private void echo(int interf) {
 		if (interf < 0) {
 			return;
 		}
@@ -92,6 +103,7 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 			}
 			else {
 				color = Color.RED;
+				sb.append("("+pending.size()+")");
 			}
 		}
 		else {
