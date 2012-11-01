@@ -55,11 +55,11 @@ public class Blatt1Aufgabe3 extends BasicAlgorithm {
 				// Ausserdem markieren wir den Knoten als informiert.
 				setInformed(true);
 
+				markInterface = interf;
 				// Und schliesslich senden wir weitere Explorer auf allen verbleibenden Interfaces aus.
 				for (int i = 0; i < checkInterfaces(); ++i) {
 					if (i == interf)
 						continue;
-
 					explore(i);
 				}
 			}
