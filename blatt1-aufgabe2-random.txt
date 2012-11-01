@@ -1,0 +1,36 @@
+#[graph]
+## number of nodes
+#6
+#
+## connections
+#0-1
+#0-2
+#0-3
+#0-4
+#0-5
+#1-2
+#2-3
+#3-4
+#4-5
+#5-1
+
+[graph.random]
+teachnet.util.RandomConnectedGraphGenerator
+n=java.lang.Integer:50
+e=java.lang.Integer:150
+
+
+[network]
+teachnet.network.LinearDelayNetwork
+delay.min=java.lang.Double:0.64
+delay.max=java.lang.Double:1.6
+
+[stack.algorithms]
+eu.tomylobo.teachnet.algorithms.Blatt1Aufgabe2
+
+[stack.configs]
+0.node.id=java.lang.String:$node.id
+
+[inits]
+#*,0,0.0
+0,0,0.0
