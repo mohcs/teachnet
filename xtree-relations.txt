@@ -1,0 +1,8 @@
+left	= id*2+1
+right	= id*2+2
+sibling	= id xor 3
+parent	= floor((id-1)/2)
+X	= / id xor 1   für det € 2er-Potenzen
+	  \ ø          sonst
+
+mit det = floor(id/2)+1
