@@ -1,0 +1,87 @@
+2.1 Echo
+Bei einer Verbesserung des Echo-Algorithmus, die in der Vorlesung vorgestellt wurde, wird mit jeder Explorer
+Nachricht zusammen eine Menge von Tabuknoten IDs verschickt. Wie viele Nachrichten werden bei
+folgenden Topologien gespart:
+
+2.1.a
+Ring mit n Knoten
+
+Antwort: Bei n = 3 werden genau 2 Nachrichten gespart, da der Initiator
+offensichtlich in der Tabuliste alle Knoten-IDs mitschickt und sich so die 
+beiden informierten Knoten nicht gegenseiteig informieren müssen. Ab einer 
+Knotenanzahl von n = 4 werden gegenüber dem normalen Echo-Algorithmus keine
+Nachrichten gespart, da hier beim Aufeinandertreffen der Explorer beide Ring-
+Seiten nichts voneinander wissen.
+Zudem kann es zu einem Sonderfall beim verbesserten Echo-Algorithmus kommen: 
+Wenn die Explorer von der einen Ringseite sehr schnell sind, könnten sie auf 
+der anderen Ringhälfte ankommen, bevor der Explorer vom Initiator hier den 
+ersten Knoten ereicht. Da in der Tabuliste dieser Knoten steht, wird er nicht 
+von den schnellen Knoten informiert. Erst dann erhält dieser den Explorer des 
+Initiators (nur mit dem Initiator in der Tabuliste) und schickt einen 
+Explorer an den schon informierten nächsten Knoten. Damit der Algorithmus 
+terminieren kann, muss dieser doppelt informierte Knoten auch eine zweite 
+Quittung herausschicken. Die Nachrichten Anzahl bleibt bei 2e (kein Ersparnis 
+gegnüber dem herkömmlichen Echo-Algorithmus), allerdings kommt es hier dazu, 
+dass ein Knoten zwei Quittungen verschickt.
+
+2.1.b.
+Binärer X-Baum der Höhe h (mit 2^(h+1)-1 Knoten)
+
+Antwort: Es werden gegnüber dem herkömmlichen Echo-Algorithmus 2^(h+1)-2 
+Nachrichten gespart, wenn man von einer einheitlichen Nachrichtenlaufzeit 
+ausgeht. Da es sich um einen Binärbaum handelt, verdoppelt sich mit steigendem 
+h die Anzahl der Kanten auf denen keine Nachrichten laufen (es sind einige der
+"horizontalen" Verindungskanten), daher die Potenz zur Basis 2 wie bei der 
+Anzahl der Knoten.
+Wenn keine einheitliche Nachrichtenlaufzeit gegeben ist, kann wieder der in 
+2.1.a geschildert Sonderfall auftreten, dass ein Knoten mehrfach informiert 
+wird und zur erfolgreichen Terminierung auch zwei Quittungen schicken muss. 
+Daher ist bei nicht einheitlicher Nachrichtenlaufzeit eine Ersparnis von 
+höchstens 2^(h+1)-2 Nachrichten gegeben, die Ersparnis kann auch geringer sein.
+
+2.2 Auswahl
+Implementieren Sie den Algorithmus von Chang und Roberts, der in der Vorlesung vorgestellt wurde. Stellen
+Sie den Worst- und Best-Case oder den Average-Case (gemittelt über mehrere Experimente) bzgl. der
+Nachrichtenkomplexität nach und vergleichen Sie die Ergebnisse mit den Formeln.
+
+Wir haben den Algorithmus nach Chan und Roberts auf einem unidirektionalem Ring
+implementiert und sowohl den Best Case als auch den Worst Case getestet. Dabei 
+waren bei uns imer Knoten auch Initiatoren.
+Beim Best Case sind die Knoten mit aufsteigendender ID in Nachrichtenrichtung 
+angeordnet, wodurch alle Initiator-Nachrichten-Wellen bis auf die des höchsten 
+Knoten sofort nach einer Nachricht ausgelöscht werden, wenn alle Knoten 
+gleichzeitig initiieren. Dadurch kommt es bei k=n zu insgesamt 3n-1 
+Nachrichten. Noch weniger Nachrichten bräuchte diese Topologie, wenn nur der 
+höchste Knoten initialisiert und einmal den Ring durchläuft und alle von seinem 
+"Sieg" informiert, bevor diese spontan initiieren. Dann wären es nur 2n 
+Nachrichten.
+Beim Worst Case ist die Sortierung genau andersherum, die Knoten sind in 
+absteigender Reiehenfolge angeordnet, aber initiieren danach in aufsteigender 
+Reihenfolge nacheinander. Unsere Implementierung kommt wie erwartet bei k=n auf 
+n²–n(n–1)/2+n Nachrichten. Damit wirklich der Worst Case eintritt, darf es zu 
+keiner Überholung (bei dieser Topologie bedeutet das Auslöschung) kommen.
+
+2.3 Auswahl
+Betrachten wir den Algorithmus von Chang und Roberts. Als Voraussetzung wurde angenommen, dass alle
+Knotenidentitäten verschieden sind. Verwerfen wir diese Annahme und lassen gleiche Knotenidentitäten
+zu.
+
+2.3.a Arbeitet der Algorithmus dann noch korrekt? Begründen Sie Ihre Antwort!
+Nein, weil ein Knoten sich als Gewinner wähnt, sobald er eine Nachricht mit 
+seiner eigenen ID erhält. Wenn es zwei Knoten mit der selben ID gibt, diese 
+aber nicht der höchste Wert im Ring ist, empfängt der zweite Knoten diesen 
+Wert (angenommen dazwischen passiert keine Auslöschung), denkt dass er damit 
+einen vollständigen Ringumlauf gewonnen hat und informiert alle über seinen 
+vermeintlichen Maximal-Wert.
+
+2.3.b In welchen Fällen liefert er dennoch ein korrektes Ergebnis? Nennen Sie mindestens zwei Fälle!
+Ein korrektes Ergebnis im Sinne von "der Knoten mit der höchsten ID merkt, dass 
+er gewonnen hat" kommt zu Stande, wenn es mehrere Knoten gibt, diese aber den 
+höchsten Wert des Netzes haben. Wenn einer von diesem initiiert, wird der 
+Maximal-Wert der Gewinner-Wert des Rings (hierbei stellt sich die Frage, was 
+die Abbruch-Bedingung für den vollständigen Ringumlauf der 
+Gewinnbenachrichtigung ist).
+Ein andere Fall wäre, wenn zwischen den Knoten mit dem gleichen Wert immer noch 
+Knoten mit höherer ID liegen. Dadurch kommt es zur Auslöschung und der 
+Nachrichten der doppelt vorkommenden Knoten und sie können nicht 
+fälschlicherweise Gewinner werden.
