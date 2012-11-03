@@ -1,0 +1,7 @@
+Aufgabe 2.1.
+Bei einer Verbesserung des Echo-Algorithmus, die in der Vorlesung vorgestellt wurde, wird mit jeder Ex- plorer Nachricht zusammen eine Menge von Tabuknoten IDs verschickt. Wie viele Nachrichten werden bei folgenden Topologien gespart:
+a) Ring mit n Knoten
+Es können maximal Zwei Nachrichten gespart werden (bei einem Ring mit 3 Knoten). Bei n > 3 kann eine Nachricht gespart werden, wenn eine der beiden Nachrichten die vom Initator versendet werden, so lange braucht, dass in der anderen Richtung alle weiteren Knoten in der Zeit die Nachricht erhalten.  
+
+b) Binärer X-Baum der Höhe h (mit 2h+1-1 Knoten)
+Hierbei werden 2^(h+1) - 2 Nachrichten eingespart. Gespart werden immer die Nachrichten zwischen den Knoten die einen gemeinsamen Elternknoten haben, da diese sich gegenseitig in der Tabuliste haben. Dadurch ergibt sich dass wir pro Knoten genau eine Nachricht sparen, bis auf den Wurzelknoten, da dieser bloß ein Elternknoten ist. 
