@@ -29,10 +29,10 @@ Binärer X-Baum der Höhe h (mit 2^(h+1)-1 Knoten)
 
 Antwort: Es werden gegnüber dem herkömmlichen Echo-Algorithmus 2^(h+1)-2 
 Nachrichten gespart, wenn man von einer einheitlichen Nachrichtenlaufzeit 
-ausgeht. Da es sich um einen Binärbaum handelt, verdoppelt sich mit steigendem 
-h die Anzahl der Kanten auf denen keine Nachrichten laufen (es sind einige der
-"horizontalen" Verindungskanten), daher die Potenz zur Basis 2 wie bei der 
-Anzahl der Knoten.
+ausgeht. Gespart werden immer die Nachrichten zwischen den Knoten die einen 
+gemeinsamen Elternknoten haben, da diese sich gegenseitig in der Tabuliste 
+haben. Dadurch ergibt sich dass wir pro Knoten genau eine Nachricht sparen, 
+bis auf den Wurzelknoten, da dieser bloß ein Elternknoten ist.
 Wenn keine einheitliche Nachrichtenlaufzeit gegeben ist, kann wieder der in 
 2.1.a geschildert Sonderfall auftreten, dass ein Knoten mehrfach informiert 
 wird und zur erfolgreichen Terminierung auch zwei Quittungen schicken muss. 
