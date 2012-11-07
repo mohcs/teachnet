@@ -43,8 +43,8 @@ public class ChangRoberts extends BasicAlgorithm {
 	public void receive(int arg0, Object arg1) {
 		// Verarbeiten der Benachrichtigung, dass die groesste ID gefunden ist
 		if (arg1 instanceof Boolean && (Boolean) arg1) {
-			if (color != Color.red) {
-				color = Color.blue;
+			if (color != Color.RED) {
+				color = Color.BLUE;
 				// Naechsten Knoten informieren
 				send(0, true);
 			}
@@ -62,7 +62,7 @@ public class ChangRoberts extends BasicAlgorithm {
 		}
 		if (value == this.id) {
 			// Dieser Knoten hat die Wahl gewonnen
-			color = Color.red;
+			color = Color.RED;
 			// Durch weiteren Ringdurchlauf alle informieren
 			send(0, true);
 		}
