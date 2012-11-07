@@ -1,2 +1,6 @@
 /target
 /.settings
+*~
+*.class
+.DS_Store
+*.swp
