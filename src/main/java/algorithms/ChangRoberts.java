@@ -40,9 +40,9 @@ public class ChangRoberts extends BasicAlgorithm {
 	}
 
 	@Override
-	public void receive(int arg0, Object arg1) {
+	public void receive(int interf, Object message) {
 		// Verarbeiten der Benachrichtigung, dass die groesste ID gefunden ist
-		if (arg1 instanceof Boolean && (Boolean) arg1) {
+		if (message instanceof Boolean && (Boolean) message) {
 			if (color != Color.RED) {
 				color = Color.BLUE;
 				// Naechsten Knoten informieren
@@ -51,7 +51,7 @@ public class ChangRoberts extends BasicAlgorithm {
 			return;
 		}
 
-		int value = (Integer) arg1;
+		int value = (Integer) message;
 		if (this.max < value) {
 			// Dieser Knoten brauch nicht mehr als Initiator agieren, da er
 			// nicht mehr gewinnen kann
