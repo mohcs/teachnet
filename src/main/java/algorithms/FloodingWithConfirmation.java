@@ -28,11 +28,13 @@ public class FloodingWithConfirmation extends BasicAlgorithm {
 	private Set<Integer> pending = new HashSet<Integer>();
 	private int sourceInterface = -1;
 
+	@Override
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
 		update();
 	}
 
+	@Override
 	public void initiate() {
 		// Der Startknoten ist immer informiert.
 		setInformed(true);
@@ -43,6 +45,7 @@ public class FloodingWithConfirmation extends BasicAlgorithm {
 		}
 	}
 
+	@Override
 	public void receive(int interf, Object message) {
 		if (message instanceof ExplorerMessage) {
 			// Wenn ein Explorer empfangen wird, checken wir zunaechst, ob wir bereits informiert wurden.

@@ -26,6 +26,7 @@ public class Echo extends BasicAlgorithm {
 	private Set<Integer> pending = new HashSet<Integer>();
 	private int sourceInterface = -1;
 
+	@Override
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
 		// Anfangs markieren wir alle Interfaces aller Knoten.
@@ -36,6 +37,7 @@ public class Echo extends BasicAlgorithm {
 		update();
 	}
 
+	@Override
 	public void initiate() {
 		// Der Startknoten ist immer informiert.
 		setInformed(true);

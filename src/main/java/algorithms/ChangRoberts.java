@@ -19,6 +19,7 @@ public class ChangRoberts extends BasicAlgorithm {
 	int max;
 	boolean init;
 
+	@Override
 	public void setup(java.util.Map<String, Object> config) {
 		this.id = (Integer) config.get("node.id");
 		this.max = this.id;
