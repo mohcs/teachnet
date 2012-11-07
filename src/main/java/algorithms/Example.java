@@ -1,4 +1,4 @@
-package eu.tomylobo.teachnet.algorithms;
+package algorithms;
 
 import teachnet.algorithm.BasicAlgorithm;
 

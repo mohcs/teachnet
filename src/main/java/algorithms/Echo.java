@@ -1,4 +1,4 @@
-package eu.tomylobo.teachnet.algorithms;
+package algorithms;
 
 import teachnet.algorithm.BasicAlgorithm;
 
@@ -6,15 +6,14 @@ import java.awt.Color;
 import java.util.HashSet;
 import java.util.Set;
 
-import eu.tomylobo.teachnet.messages.flood.*;
+import messages.echo.*;
+
 
 /**
- * Implementieren Sie mit Hilfe des Simulationsframeworks teachnet (zu finden in
- * ISIS) den Flutungsalgorithmus mit Bestätigung. Testen Sie den Algorithmus auf
- * einem Ring und vergleichen Sie die Nachrichtenanzahl mit dem "Broadcast auf
- * unidirektionalen Ringen" auf derselben Topologie.
+ * Implementieren Sie mit Hilfe von teachnet den Echo-Algorithmus und überprüfen
+ * Sie die Richtigkeit der Nachrichtenanzahl (2e).
  */
-public class Blatt1Aufgabe2 extends BasicAlgorithm {
+public class Echo extends BasicAlgorithm {
 	@SuppressWarnings("unused")
 	private Color color = null; // Färbt Knoten ein
 	@SuppressWarnings("unused")
@@ -29,6 +28,11 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
+		// Anfangs markieren wir alle Interfaces aller Knoten.
+		for (int i = 0; i < checkInterfaces(); ++i) {
+			pending.add(i);
+		}
+
 		update();
 	}
 
@@ -45,37 +49,31 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 	public void receive(int interf, Object message) {
 		if (message instanceof ExplorerMessage) {
 			// Wenn ein Explorer empfangen wird, checken wir zunächst, ob wir bereits informiert wurden.
-			if (informed) {
-				// Wenn ja, senden wir sofort eine Bestätigung zurück und sind fertig
-				confirm(interf);
-				return;
-			}
+			if (!informed) {
+				// Dies ist der erste Explorer den wir empfangen und wir merken uns woher er kam.
+				sourceInterface = interf;
 
-			// Ansonsten ist dies der erste Explorer den wir empfangen und wir merken uns woher er kam.
-			sourceInterface = interf;
+				// Ausserdem markieren wir den Knoten als informiert.
+				setInformed(true);
 
-			// Ausserdem markieren wir den Knoten als informiert.
-			setInformed(true);
-
-			// Und schliesslich senden wir weitere Explorer auf allen verbleibenden Interfaces aus.
-			for (int i = 0; i < checkInterfaces(); ++i) {
-				if (i == interf)
-					continue;
-
-				explore(i);
+				markInterface = interf;
+				// Und schliesslich senden wir weitere Explorer auf allen verbleibenden Interfaces aus.
+				for (int i = 0; i < checkInterfaces(); ++i) {
+					if (i == interf)
+						continue;
+					explore(i);
+				}
 			}
 		}
-		else if (message instanceof ConfirmationMessage) {
-			// Wenn wir eine Bestätigungsmeldung bekommen, haken wir das entsprechende Interface ab.
-			pending.remove(interf);
-			update();
-		}
+
+		// Sowohl bei einem Explorer als auch einem Echo haken wir das entsprechende Interface ab.
+		pending.remove(interf);
+		update();
 
 		// Keine ausstehenden Antworten?
 		if (pending.isEmpty()) {
-			// Ja => Bestätigung an das Interface des ersten Explorers schicken
-			// Dieser Fall tritt ein, wenn ein Explorer von einem Blattknoten empfangen wird oder die letzte Bestätigungsmeldung eingegangen ist.
-			confirm(sourceInterface);
+			// Ja => Echo an das Interface des ersten Explorers schicken
+			echo(sourceInterface);
 		}
 	}
 
@@ -85,16 +83,14 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 	}
 
 	private void explore(int interf) {
-		pending.add(interf);
 		send(interf, new ExplorerMessage());
-		update();
 	}
 
-	private void confirm(int interf) {
+	private void echo(int interf) {
 		if (interf < 0) {
 			return;
 		}
-		send(interf, new ConfirmationMessage());
+		send(interf, new EchoMessage());
 	}
 
 	public void update() {
@@ -104,15 +100,15 @@ public class Blatt1Aufgabe2 extends BasicAlgorithm {
 
 		if (informed) {
 			if (pending.isEmpty()) {
-				color = Color.RED;
+				color = Color.GREEN;
 			}
 			else {
-				color = Color.GREEN;
+				color = Color.RED;
 				sb.append("("+pending.size()+")");
 			}
 		}
 		else {
-			color = Color.BLACK;
+			color = Color.WHITE;
 		}
 		caption = sb.toString();
 	}

@@ -26,7 +26,7 @@ delay.min=java.lang.Double:0.8
 delay.max=java.lang.Double:2.0
 
 [stack.algorithms]
-eu.tomylobo.teachnet.algorithms.Blatt1Aufgabe3
+algorithms.Echo
 
 [stack.configs]
 0.node.id=java.lang.String:$node.id

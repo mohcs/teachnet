@@ -1,4 +1,4 @@
-package eu.tomylobo.teachnet.messages.flood;
+package messages.flood;
 
 import java.awt.Color;
 

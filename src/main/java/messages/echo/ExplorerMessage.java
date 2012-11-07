@@ -1,13 +1,13 @@
-package eu.tomylobo.teachnet.messages.flood;
+package messages.echo;
 
 import java.awt.Color;
 
-public class ConfirmationMessage {
+public class ExplorerMessage {
 	@SuppressWarnings("unused")
 	private final Color color = Color.RED;
 
 	@Override
 	public String toString() {
-		return "confirm";
+		return "explore";
 	}
 }

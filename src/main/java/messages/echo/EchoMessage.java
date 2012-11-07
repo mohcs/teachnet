@@ -1,4 +1,4 @@
-package eu.tomylobo.teachnet.messages.echo;
+package messages.echo;
 
 import java.awt.Color;
 

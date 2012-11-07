@@ -1,3 +1,5 @@
+package algorithms;
+
 import java.awt.Color;
 
 import teachnet.algorithm.BasicAlgorithm;
