@@ -19,11 +19,9 @@ public class GenericMessageRenderer extends MessageRenderer {
 		Shape shape = null;
 
 		if (status.payload instanceof Boolean) {
-			final boolean b = ((Boolean) status.payload).booleanValue();
-			color = b ? Color.GREEN : Color.RED;
+			color = (Boolean) status.payload ? Color.GREEN : Color.RED;
 		}
-
-		if (status.payload instanceof Color) {
+		else if (status.payload instanceof Color) {
 			color = (Color) status.payload;
 		} else if (status.payload instanceof String) {
 			caption = (String) status.payload;
