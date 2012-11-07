@@ -2,6 +2,9 @@ package algorithms;
 
 import java.awt.Color;
 
+import messages.changroberts.MasterMessage;
+import messages.changroberts.MaxMessage;
+
 import teachnet.algorithm.BasicAlgorithm;
 
 /**
@@ -36,35 +39,35 @@ public class ChangRoberts extends BasicAlgorithm {
 		init = true;
 		// Maximal-Wert initial auf eigene ID setzen
 		this.max = this.id;
-		send(0, this.max);
+		send(0, new MaxMessage(this.id));
 	}
 
 	@Override
 	public void receive(int interf, Object message) {
 		// Verarbeiten der Benachrichtigung, dass die groesste ID gefunden ist
-		if (message instanceof Boolean && (Boolean) message) {
+		if (message instanceof MasterMessage) {
 			if (color != Color.RED) {
 				color = Color.BLUE;
 				// Naechsten Knoten informieren
-				send(0, true);
+				send(0, message);
 			}
 			return;
 		}
 
-		int value = (Integer) message;
+		int value = ((MaxMessage) message).getValue();
 		if (this.max < value) {
 			// Dieser Knoten brauch nicht mehr als Initiator agieren, da er
 			// nicht mehr gewinnen kann
 			init = true;
 			this.max = value;
 			this.caption = getCaption();
-			send(0, this.max);
+			send(0, message);
 		}
 		if (value == this.id) {
 			// Dieser Knoten hat die Wahl gewonnen
 			color = Color.RED;
 			// Durch weiteren Ringdurchlauf alle informieren
-			send(0, true);
+			send(0, new MasterMessage());
 		}
 	}
 
