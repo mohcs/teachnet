@@ -6,11 +6,11 @@ import teachnet.algorithm.BasicAlgorithm;
 
 /**
  * Implementierung des Algorithmus von Chang und Roberts zur Auswahl eines
- * Knotens mit der höchsten ID in einem Ring. Initial werden alle Knoten weiß
+ * Knotens mit der hoechsten ID in einem Ring. Initial werden alle Knoten weiss
  * dargestellt. Der Knoten der die Wahl gewonnen hat wird rot dargestellt, alle
- * über die Auswahl informierten Knoten werden blau dargestellt.
+ * ueber die Auswahl informierten Knoten werden blau dargestellt.
  * 
- * @author Tim Strehlow, Björn Stabel, Friedrich Maiwald
+ * @author Tim Strehlow, Bjoern Stabel, Friedrich Maiwald
  */
 public class ChangRoberts extends BasicAlgorithm {
 	Color color;
@@ -40,11 +40,11 @@ public class ChangRoberts extends BasicAlgorithm {
 
 	@Override
 	public void receive(int arg0, Object arg1) {
-		// Verarbeiten der Benachrichtigung, dass die größte ID gefunden ist
+		// Verarbeiten der Benachrichtigung, dass die groesste ID gefunden ist
 		if (arg1 instanceof Boolean && (Boolean) arg1) {
 			if (color != Color.red) {
 				color = Color.blue;
-				// Nächsten Knoten informieren
+				// Naechsten Knoten informieren
 				send(0, true);
 			}
 			return;

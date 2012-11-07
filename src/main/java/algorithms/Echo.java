@@ -10,12 +10,12 @@ import messages.echo.*;
 
 
 /**
- * Implementieren Sie mit Hilfe von teachnet den Echo-Algorithmus und überprüfen
+ * Implementieren Sie mit Hilfe von teachnet den Echo-Algorithmus und ueberpruefen
  * Sie die Richtigkeit der Nachrichtenanzahl (2e).
  */
 public class Echo extends BasicAlgorithm {
 	@SuppressWarnings("unused")
-	private Color color = null; // Färbt Knoten ein
+	private Color color = null; // Faerbt Knoten ein
 	@SuppressWarnings("unused")
 	private int markInterface = -1; // Hebt Kante n hervor
 	@SuppressWarnings("unused")
@@ -40,7 +40,7 @@ public class Echo extends BasicAlgorithm {
 		// Der Startknoten ist immer informiert.
 		setInformed(true);
 		// Anfangs wird ein Explorer auf jede mit dem Startknoten verbundene Kante gesendet.
-		// 'explore' übernimmt dabei auch das markieren der Interfaces mit ausstehenden Antworten.
+		// 'explore' uebernimmt dabei auch das markieren der Interfaces mit ausstehenden Antworten.
 		for (int i = 0; i < checkInterfaces(); ++i) {
 			explore(i);
 		}
@@ -48,7 +48,7 @@ public class Echo extends BasicAlgorithm {
 
 	public void receive(int interf, Object message) {
 		if (message instanceof ExplorerMessage) {
-			// Wenn ein Explorer empfangen wird, checken wir zunächst, ob wir bereits informiert wurden.
+			// Wenn ein Explorer empfangen wird, checken wir zunaechst, ob wir bereits informiert wurden.
 			if (!informed) {
 				// Dies ist der erste Explorer den wir empfangen und wir merken uns woher er kam.
 				sourceInterface = interf;
