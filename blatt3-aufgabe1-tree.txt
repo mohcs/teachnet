@@ -19,8 +19,8 @@
 4-12
 [network]
 teachnet.network.LinearDelayNetwork
-delay.min=java.lang.Double:2.0
-delay.max=java.lang.Double:3.0
+delay.min=java.lang.Double:1.0
+delay.max=java.lang.Double:2.0
 
 [stack.algorithms]
 algorithms.TreeElection

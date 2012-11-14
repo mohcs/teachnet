@@ -35,15 +35,17 @@ public class TreeElection extends BasicAlgorithm {
 
 	@Override
 	public void initiate() {
-		if(checkInterfaces() == 1){
+		exploded = true;
+
+		// If a leaf is initiating we immediately send a contraction message
+		if (checkInterfaces() == 1) {
 			color = Color.ORANGE;
 			caption = id + " (" + max + ")";
 			send(0, id);
-			exploded = true;
 			contracted = true;
 			return;
 		}
-		exploded = true;
+
 		color = Color.RED;
 		// send explosion message to all neighbors
 		for (int i = 0; i < checkInterfaces(); i++) {
@@ -55,18 +57,15 @@ public class TreeElection extends BasicAlgorithm {
 	public void receive(int interf, Object message) {
 		// explosion message
 		if (message instanceof Boolean) {
-			if(contracted){
+			if (contracted) {
+				// if the node is already contracted ignore the explosion
+				// message
 				return;
 			}
 			if (!exploded) {
 				exploded = true;
 				color = Color.RED;
-				for (int i = 0; i < checkInterfaces(); i++) {
-					if (i == interf) {
-						continue;
-					}
-					send(i, false);
-				}
+				sendToAllButOne(interf, false);
 			}
 			// itself as leave detected, send id (end contraction phase for this
 			// node)
@@ -79,22 +78,14 @@ public class TreeElection extends BasicAlgorithm {
 		}
 		// maximum / information message
 		else if (message instanceof Integer) {
+			max = Math.max(max, (Integer) message);
 			if (!exploded) {
-				max = Math.max(max, (Integer) message);
 				contractions.add(interf);
-				
 				exploded = true;
 				color = Color.RED;
-				for (int i = 0; i < checkInterfaces(); i++) {
-					if (i == interf) {
-						continue;
-					}
-					send(i, false);
-				}
-			}
-			else if (!contracted) {
+				sendToAllButOne(interf, false);
+			} else if (!contracted) {
 				// gather maximum from children
-				max = Math.max(max, (Integer) message);
 				contractions.add(interf);
 				// informed by all leaves, send maximum to parent
 				if (contractions.size() == (checkInterfaces() - 1)) {
@@ -112,18 +103,29 @@ public class TreeElection extends BasicAlgorithm {
 				}
 			}
 			// information about leader
-			if (contracted) {
-				max = Math.max(max, (Integer) message);
+			else if (contracted) {
 				caption = id + " (" + max + ")";
 				color = Color.BLUE;
 				// inform neighbors except source interface
-				for (int i = 0; i < checkInterfaces(); i++) {
-					if (i == interf) {
-						continue;
-					}
-					send(i, Math.max(max, (Integer) message));
-				}
+				sendToAllButOne(interf, Math.max(max, (Integer) message));
 			}
+		}
+	}
+
+	/**
+	 * Helper-Method to send an Object to all interfaces except one.
+	 * 
+	 * @param ifToLeaveOut
+	 *            - the interface to be left out
+	 * @param msg
+	 *            - the Object to be sent
+	 */
+	private void sendToAllButOne(int ifToLeaveOut, Object msg) {
+		for (int i = 0; i < checkInterfaces(); i++) {
+			if (i == ifToLeaveOut) {
+				continue;
+			}
+			send(i, msg);
 		}
 	}
 }
