@@ -35,6 +35,14 @@ public class TreeElection extends BasicAlgorithm {
 
 	@Override
 	public void initiate() {
+		if(checkInterfaces() == 1){
+			color = Color.ORANGE;
+			caption = id + " (" + max + ")";
+			send(0, id);
+			exploded = true;
+			contracted = true;
+			return;
+		}
 		exploded = true;
 		color = Color.RED;
 		// send explosion message to all neighbors
@@ -47,6 +55,9 @@ public class TreeElection extends BasicAlgorithm {
 	public void receive(int interf, Object message) {
 		// explosion message
 		if (message instanceof Boolean) {
+			if(contracted){
+				return;
+			}
 			if (!exploded) {
 				exploded = true;
 				color = Color.RED;
@@ -68,7 +79,20 @@ public class TreeElection extends BasicAlgorithm {
 		}
 		// maximum / information message
 		else if (message instanceof Integer) {
-			if (!contracted) {
+			if (!exploded) {
+				max = Math.max(max, (Integer) message);
+				contractions.add(interf);
+				
+				exploded = true;
+				color = Color.RED;
+				for (int i = 0; i < checkInterfaces(); i++) {
+					if (i == interf) {
+						continue;
+					}
+					send(i, false);
+				}
+			}
+			else if (!contracted) {
 				// gather maximum from children
 				max = Math.max(max, (Integer) message);
 				contractions.add(interf);
