@@ -41,7 +41,6 @@ public class TreeElection extends BasicAlgorithm {
 		for (int i = 0; i < checkInterfaces(); i++) {
 			send(i, false);
 		}
-
 	}
 
 	@Override
@@ -100,7 +99,6 @@ public class TreeElection extends BasicAlgorithm {
 					}
 					send(i, Math.max(max, (Integer) message));
 				}
-
 			}
 		}
 	}
