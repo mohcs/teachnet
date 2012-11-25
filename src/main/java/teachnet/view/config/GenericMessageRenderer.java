@@ -10,8 +10,7 @@ import teachnet.view.MessageStatus;
 public class GenericMessageRenderer extends MessageRenderer {
 	private static final int RADIUS = 5;
 
-	public void paint(Graphics g, MessageStatus status)
-			throws RendererException {
+	public void paint(Graphics g, MessageStatus status) throws RendererException {
 		Point position = getPosition(status);
 
 		Color color = null;
@@ -45,32 +44,7 @@ public class GenericMessageRenderer extends MessageRenderer {
 			shape = Shape.CIRCLE;
 		}
 
-		switch (shape) {
-		case RECTANGLE:
-			g.setColor(color);
-			g.fillRect(position.x - RADIUS, position.y - RADIUS, RADIUS * 2, RADIUS * 2);
-
-			g.setColor(Color.black);
-			g.drawRect(position.x - RADIUS, position.y - RADIUS, RADIUS * 2, RADIUS * 2);
-			break;
-
-		case RHOMBUS:
-			g.setColor(color);
-			final int[] xPoints = { position.x, position.x + RADIUS, position.x, position.x - RADIUS };
-			final int[] yPoints = { position.y + RADIUS, position.y, position.y - RADIUS, position.y };
-			g.fillPolygon(xPoints, yPoints, 4);
-
-			g.setColor(Color.black);
-			g.drawPolygon(xPoints, yPoints, 4);
-			break;
-
-		default:
-			g.setColor(color);
-			g.fillOval(position.x - RADIUS, position.y - RADIUS, RADIUS * 2, RADIUS * 2);
-
-			g.setColor(Color.black);
-			g.drawOval(position.x - RADIUS, position.y - RADIUS, RADIUS * 2, RADIUS * 2);
-		}
+		shape.draw(g, position, color, RADIUS);
 
 		if (caption != null)
 			g.drawString(caption, position.x + RADIUS + 2, position.y + RADIUS);
