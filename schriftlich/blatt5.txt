@@ -1,0 +1,41 @@
+Aufgabe 5.1: Wechselseitiger Ausschluss
+Implementieren Sie die verbesserte Token Ring-Lösung (Suzuki und Kasami, 1985) für den gegenseitigen
+Ausschluss mit Hilfe des Simulationsframeworks. Veranlassen Sie in (pseudo-)zufälligen Abständen einen
+zufällig ausgewählten Knoten dazu, die Ressource anzufordern. Wählen Sie die Zufallswerte für den Abstand
+sinnvoll, das heißt, es sollte sowohl Zeiten in der Simulation geben, zu denen wenige oder gar keine
+Anforderungen vorliegen, als auch Zeiten, zu denen sehr viele Anforderungen vorliegen.
+
+Aufgabe 5.2: Verteilte Speicherbereinigung
+Recherchieren Sie, wie die verteilte Speicherbereinigung bei Java RMI realisiert ist und vergleichen Sie es
+mit dem Mechanismus, der in Microsoft DCOM eingesetzt wird.
+
+Aufgabe 5.3: Mark and Sweep
+Das Markieren und Ausfegen ist im echt verteilten Fall ungünstig, da das System angehalten werden muss.
+Aber auch im nicht echt verteilten Fall (z. B. mehrere Threads auf einem PC) kann das Anhalten all dieser
+Threads zu einer spürbaren Verzögerung führen. Daher wird versucht, während des Markierens und Ausfegens
+das System nicht dauerhaft anzuhalten. Wie kann dies bewerkstelligt werden?
+(Siehe beispielsweise: Tony Printezis and David Detlefs: ”A Generational Mostly-concurrent Garbage Collector”,
+http://labs.oracle.com/techrep/2000/smli_tr-2000-88.pdf)
+
+Mark-and-sweep ist die einfachste Form eines Garbage Collectors. Da die Ausführung wie in der Aufgabe 
+beschrieben zu Verzögerungen führen kann, gibt es verschiedene Alternativvorschläge zur Lösung diese Problems.
+
+Ein Ansatz ist das tricolor-Verfahren, bei dem Teile der Speicherbereinigung parallel zum eigentlichem Programm 
+laufen. Zu Beginn muss dabei der Mutator (das eigentliche Programm, das Objekte im Speicher erzeugt und verändert) 
+kurz angehalten werden, um die Root-Objekte zu markieren. Danach kann das Programm weiterlaufen und parallel dazu 
+hangelt sich der Collector von den Root-Objekten zu allen erreichbaren (noch gebrauchten) Objekten und markiert 
+diese. Sollte der Mutator in dieser Phase schon markierte Onjekte ändern, muss er diese für den Collector gesondert 
+markieren. Danach wird das Programm kurz erneut gestoppt, damit der Collector die geänderten Objekte überprüfen 
+und markieren kann. Am Ende kann das Programm weiterlaufen und parallel dazu löscht der Collector alle Objekte, 
+zu denen keine Referenzen mehr führen. Bei diesem Verfahren können eventuell einige Objekte übersehen werden, so dass 
+die Speicherbereinigung nicht alle nicht mehr gebrauchten Objekte erfasst. Diese werden aber beim nächsten 
+Durchlauf des Garbage Collectors erfasst und gelöscht.
+
+Ein andere Ansatz bezieht sich auf das Alter der Objekte. Es hat sich gezeigt, dass in durchschnittlichen 
+Programmen die jungen Objekte meist nur kurzlebig sind und nicht lange gebraucht werden. Man kann die Objekte 
+also in Generationen zusammenfassen und der Garbage Collector befasst sich größtenteils nur mit der jüngsten 
+Generation. Sollte ein Objekt über mehrere Durchläufe hinweg in der jüngsten Generation überleben, wird es in eine
+ältere Generation "befördert" und wird dort seltener vom Garbage Collector überprüft. Mit diesem Verfahren wird die 
+benötigte Verzögerung im Prgramm minimiert, da nur der Teil des Speichers überprüft wird, der am wahrscheinlichsten 
+zu löschende Objekte enthält. Wenn dann aber auch mal die älteren Generationen vom Garbage Collector überprüft 
+werden, hat diese Speicherbereinigung dieselben Performance-Nachteile wie einfaches Mark-and-sweep.
