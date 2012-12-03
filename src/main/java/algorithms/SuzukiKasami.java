@@ -147,6 +147,7 @@ public class SuzukiKasami extends BasicAlgorithm {
 
 		// Wenn dieser Prozess das Token innehat...
 		if (hasToken()) {
+			token.sequenceNumbers[id] = sequenceNumber;
 			// ...Anfrage direkt bearbeiten.
 			doAccess();
 			return;
