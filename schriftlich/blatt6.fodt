@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:creation-date>2012-10-31T11:22:40.80</meta:creation-date><dc:date>2012-12-09T09:18:18</dc:date><meta:editing-duration>PT6H49M28S</meta:editing-duration><meta:editing-cycles>36</meta:editing-cycles><meta:generator>LibreOffice/3.6$MacOSX_x86 LibreOffice_project/58f22d5-270d05a-e2abed1-ea17a85-9b5702</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="2" meta:paragraph-count="27" meta:word-count="449" meta:character-count="3117" meta:non-whitespace-character-count="2679"/></office:meta>
+ <office:meta><meta:creation-date>2012-10-31T11:22:40.80</meta:creation-date><dc:date>2012-12-09T09:47:01</dc:date><meta:editing-duration>PT7H18M11S</meta:editing-duration><meta:editing-cycles>38</meta:editing-cycles><meta:generator>LibreOffice/3.6$MacOSX_x86 LibreOffice_project/58f22d5-270d05a-e2abed1-ea17a85-9b5702</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="1" meta:page-count="2" meta:paragraph-count="29" meta:word-count="477" meta:character-count="3308" meta:non-whitespace-character-count="2841"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="int">7133</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="int">7310</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="int">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="int">27541</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="int">14062</config:config-item>
@@ -14,11 +14,11 @@
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
      <config:config-item config:name="ViewLeft" config:type="int">5271</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="int">13817</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">13330</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="int">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="int">7133</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">7310</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="int">27540</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="int">21193</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">21370</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -31,7 +31,7 @@
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
    <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">2625072</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">2839118</config:config-item>
    <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
    <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
@@ -116,6 +116,8 @@
   </office:script>
  </office:scripts>
  <office:font-face-decls>
+  <style:font-face style:name="Arial1" svg:font-family="Arial"/>
+  <style:font-face style:name="ArialMT" svg:font-family="ArialMT"/>
   <style:font-face style:name="CMMI8" svg:font-family="CMMI8"/>
   <style:font-face style:name="Mangal1" svg:font-family="Mangal"/>
   <style:font-face style:name="NimbusRomNo9L" svg:font-family="NimbusRomNo9L"/>
@@ -173,6 +175,12 @@
   <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
   <style:style style:name="Graphics" style:family="graphic">
    <style:graphic-properties text:anchor-type="paragraph" svg:x="0cm" svg:y="0cm" style:wrap="dynamic" style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph"/>
+  </style:style>
+  <style:style style:name="OLE" style:family="graphic">
+   <style:graphic-properties text:anchor-type="paragraph" svg:x="0cm" svg:y="0cm" style:wrap="dynamic" style:number-wrapped-paragraphs="no-limit" style:wrap-contour="false" style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph"/>
+  </style:style>
+  <style:style style:name="Formula" style:family="graphic">
+   <style:graphic-properties text:anchor-type="as-char" svg:y="0cm" fo:margin-left="0.201cm" fo:margin-right="0.201cm" style:vertical-pos="middle" style:vertical-rel="text"/>
   </style:style>
   <text:outline-style style:name="Outline">
    <text:outline-level-style text:level="1" style:num-format="">
@@ -295,24 +303,33 @@
    <style:text-properties fo:font-style="normal" officeooo:rsid="00261ce6" officeooo:paragraph-rsid="0027de40" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties fo:font-style="italic" officeooo:paragraph-rsid="0020def7" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="P22" style:family="paragraph" style:parent-style-name="Standard">
    <style:text-properties fo:font-style="italic" officeooo:paragraph-rsid="00280e30" style:font-style-asian="italic" style:font-style-complex="italic"/>
   </style:style>
-  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Text_20_body">
+  <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties fo:color="#800000" officeooo:paragraph-rsid="002ac3e8"/>
+  </style:style>
+  <style:style style:name="P24" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:line-height="125%"/>
    <style:text-properties style:font-name="Times New Roman" fo:font-size="12pt" fo:font-style="italic" fo:font-weight="normal" officeooo:rsid="0016576c" officeooo:paragraph-rsid="0016576c" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-weight-asian="normal" style:font-size-complex="12pt" style:font-style-complex="italic" style:font-weight-complex="normal"/>
   </style:style>
-  <style:style style:name="P22" style:family="paragraph">
+  <style:style style:name="P25" style:family="paragraph">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-align="center" fo:text-indent="0cm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
-  <style:style style:name="P23" style:family="paragraph">
+  <style:style style:name="P26" style:family="paragraph">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-indent="0cm"/>
   </style:style>
-  <style:style style:name="P24" style:family="paragraph">
+  <style:style style:name="P27" style:family="paragraph">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-indent="0cm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
-  <style:style style:name="P25" style:family="paragraph">
+  <style:style style:name="P28" style:family="paragraph">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-indent="0cm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="12pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
@@ -353,10 +370,31 @@
    <style:text-properties style:font-name="CMMI8" fo:font-size="8pt"/>
   </style:style>
   <style:style style:name="T13" style:family="text">
-   <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+   <style:text-properties officeooo:rsid="002944ae"/>
   </style:style>
   <style:style style:name="T14" style:family="text">
+   <style:text-properties style:font-name="ArialMT" fo:font-size="18pt"/>
+  </style:style>
+  <style:style style:name="T15" style:family="text">
+   <style:text-properties style:font-name="ArialMT" fo:font-size="12pt"/>
+  </style:style>
+  <style:style style:name="T16" style:family="text">
+   <style:text-properties style:font-name="Arial1" fo:font-size="18pt"/>
+  </style:style>
+  <style:style style:name="T17" style:family="text">
+   <style:text-properties style:font-name="Arial1" fo:font-size="18pt" fo:font-style="italic"/>
+  </style:style>
+  <style:style style:name="T18" style:family="text">
+   <style:text-properties officeooo:rsid="002ac3e8"/>
+  </style:style>
+  <style:style style:name="T19" style:family="text">
+   <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+  </style:style>
+  <style:style style:name="T20" style:family="text">
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" fo:font-family="Arial" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-family-asian="&apos;Arial Unicode MS&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="12pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-family-complex="&apos;Arial Unicode MS&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+  </style:style>
+  <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Formula">
+   <style:graphic-properties style:vertical-pos="from-top" draw:ole-draw-aspect="1"/>
   </style:style>
   <text:list-style style:name="L1">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" style:num-suffix="." style:num-format="1">
@@ -389,6 +427,38 @@
    <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:space-before="11.972cm" text:min-label-width="0.499cm"/>
    </text:list-level-style-number>
+  </text:list-style>
+  <text:list-style style:name="L2">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="0.748cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="1.995cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="3.242cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="4.489cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="5.736cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="6.983cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="8.23cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="9.478cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="10.725cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" style:num-suffix="." text:bullet-char="•">
+    <style:list-level-properties text:space-before="11.972cm" text:min-label-width="0.499cm"/>
+   </text:list-level-style-bullet>
   </text:list-style>
   <style:style style:name="gr1" style:family="graphic">
    <style:graphic-properties style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
@@ -471,11 +541,87 @@
    <text:p text:style-name="P15"/>
    <text:p text:style-name="P1"/>
    <text:p text:style-name="P2"><text:span text:style-name="T3">Aufgabe </text:span><text:span text:style-name="T4">6</text:span><text:span text:style-name="T3">.1: </text:span><text:span text:style-name="T5">Synchronisation physischer Uhren nach Cristian </text:span></text:p>
-   <text:p text:style-name="P21">Ein Rechner will seine Uhr (ρ = 10–5) mit der Referenzuhr eines anderen Rechners synchronisieren (es wird angenommen, dass diese Referenzuhr eine Drift von 0 hat). Der Median der Nachrichtenlaufzeit x ̃ beträgt 4 ms, die minimale Nachrichtenlaufzeit x min beträgt 2 ms. Die Schranke für einen erfolgreichen Versuch U sei gleich 2x ̃ gewählt. </text:p>
+   <text:p text:style-name="P24">Ein Rechner will seine Uhr (ρ = 10–5) mit der Referenzuhr eines anderen Rechners synchronisieren (es wird angenommen, dass diese Referenzuhr eine Drift von 0 hat). Der Median der Nachrichtenlaufzeit x ̃ beträgt 4 ms, die minimale Nachrichtenlaufzeit x min beträgt 2 ms. Die Schranke für einen erfolgreichen Versuch U sei gleich 2x ̃ gewählt. </text:p>
    <text:p text:style-name="P9">a)  Wie viele erfolglose Synchronisationsversuche k muss der Rechner maximal durchführen, damit die Wahrscheinlichkeit für den Verlust der Synchronisation q kleiner als 10–6 ist?</text:p>
-   <text:p text:style-name="P20">b)  Wie hoch ist die erwartete Anzahl der Versuche bis zum Erfolg? </text:p>
-   <text:p text:style-name="P20">c)  Wie hoch ist der maximale Fehler einer Anpassung?</text:p>
-   <text:p text:style-name="P20">d)  Wie groß sind das minimale und das maximale Synchronisationsintervall ∆min und ∆max zu wa ̈hlen, damit die Abweichung der Uhr von der Referenzuhr immer kleiner als 4 ms ist, solange die Synchro- nisation nicht verloren geht? </text:p>
+   <text:p text:style-name="P9"/>
+   <text:p text:style-name="P22">b)  Wie hoch ist die erwartete Anzahl der Versuche bis zum Erfolg? </text:p>
+   <text:p text:style-name="P22"/>
+   <text:p text:style-name="P22">c)  Wie hoch ist der maximale Fehler einer Anpassung?</text:p>
+   <text:p text:style-name="P22"/>
+   <text:p text:style-name="P22">d)  Wie groß sind das minimale und das maximale Synchronisationsintervall ∆min und ∆max zu wälen, damit die Abweichung der Uhr von der Referenzuhr immer kleiner als 4 ms ist, solange die Synchronisation nicht verloren geht? </text:p>
+   <text:p text:style-name="Standard">Soll die maximale Abweichung kleiner als d bleiben, so ist eine erneute Synchronisation spätestens nach ρ–1 d notwendig: <draw:frame draw:style-name="fr1" draw:name="Objekt1" text:anchor-type="as-char" svg:y="-0.619cm" svg:width="4.232cm" svg:height="1.058cm" draw:z-index="1"><draw:object>
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+       <semantics>
+        <mrow>
+         <mrow>
+          <mfrac>
+           <mrow>
+            <mn>1</mn>
+           </mrow>
+           <mrow>
+            <msup>
+             <mn>10</mn>
+             <mrow>
+              <mo stretchy="false">−</mo>
+              <mn>5</mn>
+             </mrow>
+            </msup>
+           </mrow>
+          </mfrac>
+          <mo stretchy="false">∗</mo>
+          <mn>4</mn>
+         </mrow>
+         <mrow>
+          <mi mathvariant="italic">ms</mi>
+          <mo stretchy="false">=</mo>
+          <mn>400000</mn>
+         </mrow>
+         <mi mathvariant="italic">ms</mi>
+        </mrow>
+        <annotation encoding="StarMath 5.0">{1} over {10^-5} * 4 ms = 400000 ms</annotation>
+       </semantics>
+      </math>
+     </draw:object><draw:image>
+      <office:binary-data>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
+       AAQAAAAAAAAAlgABAAIAAAAJAIwAAQAAAAAA
+      </office:binary-data>
+     </draw:image>
+    </draw:frame></text:p>
+   <text:p text:style-name="P23"><text:span text:style-name="T18">Mir ist noch nicht klar, warum es hier ein minimales Intervall geben soll?</text:span></text:p>
    <text:p text:style-name="P9"/>
    <text:p text:style-name="P16"/>
    <text:p text:style-name="P16"/>
@@ -492,68 +638,70 @@
    <text:p text:style-name="P8"/>
    <text:p text:style-name="P8"/>
    <text:p text:style-name="P6">Aufgabe 6.3: Kausale Ordnung und Nachrichtenaustausch </text:p>
-   <text:p text:style-name="P8">In der Vorlesung wurde das Konzept des ”kausalen Broadcast“ als Anwendung der Vektoruhren vorgestellt. Für die korrekte Arbeitsweise war es notwendig, dass alle Nachrichten jeweils an alle Stationen gesendet werden. </text:p>
+   <text:p text:style-name="P8"><text:soft-page-break/>In der Vorlesung wurde das Konzept des ”kausalen Broadcast“ als Anwendung der Vektoruhren vorgestellt. Für die korrekte Arbeitsweise war es notwendig, dass alle Nachrichten jeweils an alle Stationen gesendet werden. </text:p>
    <text:p text:style-name="P8">Versuchen Sie, das Verfahren so zu modifizieren, dass diese Anforderung nicht mehr notwendig ist. Die kausale Ordnung soll also auch dann eingehalten werden, wenn jede Nachricht nur an einen Prozess geschickt wird. </text:p>
    <text:p text:style-name="P8"/>
-   <text:p text:style-name="P8">a) Warum reicht der beim kausalen Broadcast verwendete Vektor hierfür als alleiniger <text:soft-page-break/>Informationsträger nicht mehr aus? </text:p>
+   <text:p text:style-name="P8">a) Warum reicht der beim kausalen Broadcast verwendete Vektor hierfür als alleiniger Informationsträger nicht mehr aus? </text:p>
    <text:p text:style-name="P12"/>
    <text:p text:style-name="P14"><text:span text:style-name="T7">Wenn wir einfach auf den Vektor als Informationsträger setzen würden, hätten wir das Problem, dass Nachrichten nicht verarbeitet werden, sobald ein Prozess eine Nachricht erhält deren </text:span><text:span text:style-name="T7">vorhergehende Nachricht nicht an ihn gerichtet war. </text:span><text:span text:style-name="T8">Damit wäre die Bedingung, dass keine Nachricht von beliebigem Prozess Pk fehlt, nicht erfüllt.</text:span></text:p>
    <text:p text:style-name="P17"/>
    <text:p text:style-name="P12"/>
    <text:p text:style-name="P8">b) Welche Datenstruktur müsste gewählt werden, und welchen Einfluss hat diese <text:span text:style-name="T6">Ä</text:span>nderung auf die Auslieferungsbedingung und die Aktualisierung? </text:p>
-   <text:p text:style-name="P18">Mit jeder Nachricht müsste ein zweiter <text:span text:style-name="T9">binärer</text:span> Vektor mitgeschickt werden, in welchen die Werte auf <text:span text:style-name="T9">1</text:span> gesetzt sind, wenn die Nachricht kausal von einer anderen Nachricht abhängt. <text:span text:style-name="T9">Durch den Vektor wird gekennzeichnet von welcher Quelle die vorangehenden Nachrichten kommen müssen.</text:span></text:p>
+   <text:p text:style-name="P8"/>
+   <text:p text:style-name="P18">Mit jeder Nachricht müsste ein zweiter <text:span text:style-name="T9">binärer</text:span> Vektor mitgeschickt werden, in welchen die Werte auf <text:span text:style-name="T9">1</text:span> gesetzt sind, wenn die Nachricht kausal von einer <text:span text:style-name="T13">vorigen</text:span> Nachricht abhängt. <text:span text:style-name="T9">Durch den Vektor wird gekennzeichnet von welcher Quelle die vorangehenden Nachrichten kommen müssen.</text:span></text:p>
+   <text:p text:style-name="P18"><text:span text:style-name="T9"/></text:p>
    <text:p text:style-name="P18">Eine Nachricht darf <text:span text:style-name="T9">somit</text:span> erst dann ausgeliefert werden, <text:span text:style-name="T9">wenn der Knoten alle vorangehenden abhängigen Nachrichten erhalten hat. Hierbei ist rekursiv vorzugehen, also falls die direkt vorangehenden Nachrichten wieder kausal abhängige Vorgänger besitzen, so muss auf diese ebenfalls gewartet werden.</text:span></text:p>
    <text:p text:style-name="P18"><text:span text:style-name="T9"/></text:p>
    <text:p text:style-name="P19"><text:span text:style-name="T9">Einfaches Beispiel:</text:span></text:p>
-   <text:p text:style-name="P18"><draw:g text:anchor-type="paragraph" draw:z-index="0" draw:style-name="gr1"><draw:line draw:style-name="gr2" draw:text-style-name="P22" svg:x1="1.3cm" svg:y1="0.612cm" svg:x2="17.1cm" svg:y2="0.612cm">
+   <text:p text:style-name="P18"><draw:g text:anchor-type="paragraph" draw:z-index="0" draw:style-name="gr1"><draw:line draw:style-name="gr2" draw:text-style-name="P25" svg:x1="1.3cm" svg:y1="0.612cm" svg:x2="17.1cm" svg:y2="0.612cm">
       <text:p/>
-     </draw:line><draw:line draw:style-name="gr3" draw:text-style-name="P22" svg:x1="1.3cm" svg:y1="2.511cm" svg:x2="17.1cm" svg:y2="2.511cm">
+     </draw:line><draw:line draw:style-name="gr3" draw:text-style-name="P25" svg:x1="1.3cm" svg:y1="2.511cm" svg:x2="17.1cm" svg:y2="2.511cm">
       <text:p/>
-     </draw:line><draw:line draw:style-name="gr4" draw:text-style-name="P22" svg:x1="1.3cm" svg:y1="4.512cm" svg:x2="17.1cm" svg:y2="4.512cm">
+     </draw:line><draw:line draw:style-name="gr4" draw:text-style-name="P25" svg:x1="1.3cm" svg:y1="4.512cm" svg:x2="17.1cm" svg:y2="4.512cm">
       <text:p/>
-     </draw:line><draw:frame draw:style-name="gr5" draw:text-style-name="P24" svg:width="1.281cm" svg:height="0.983cm" svg:x="0cm" svg:y="0.011cm">
+     </draw:line><draw:frame draw:style-name="gr5" draw:text-style-name="P27" svg:width="1.281cm" svg:height="0.983cm" svg:x="0cm" svg:y="0.011cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T13">P1</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T19">P1</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:frame draw:style-name="gr6" draw:text-style-name="P24" svg:width="1.281cm" svg:height="0.983cm" svg:x="0.002cm" svg:y="2.011cm">
+     </draw:frame><draw:frame draw:style-name="gr6" draw:text-style-name="P27" svg:width="1.281cm" svg:height="0.983cm" svg:x="0.002cm" svg:y="2.011cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T13">P1</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T19">P1</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:frame draw:style-name="gr7" draw:text-style-name="P24" svg:width="1.281cm" svg:height="0.983cm" svg:x="0.002cm" svg:y="4.012cm">
+     </draw:frame><draw:frame draw:style-name="gr7" draw:text-style-name="P27" svg:width="1.281cm" svg:height="0.983cm" svg:x="0.002cm" svg:y="4.012cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T13">P1</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T19">P1</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:line draw:style-name="gr8" draw:text-style-name="P22" svg:x1="2cm" svg:y1="0.612cm" svg:x2="4cm" svg:y2="4.512cm">
+     </draw:frame><draw:line draw:style-name="gr8" draw:text-style-name="P25" svg:x1="2cm" svg:y1="0.612cm" svg:x2="4cm" svg:y2="4.512cm">
       <text:p/>
-     </draw:line><draw:line draw:style-name="gr9" draw:text-style-name="P22" svg:x1="2cm" svg:y1="0.612cm" svg:x2="8.4cm" svg:y2="2.512cm">
+     </draw:line><draw:line draw:style-name="gr9" draw:text-style-name="P25" svg:x1="2cm" svg:y1="0.612cm" svg:x2="8.4cm" svg:y2="2.512cm">
       <text:p/>
-     </draw:line><draw:line draw:style-name="gr10" draw:text-style-name="P22" svg:x1="4.5cm" svg:y1="4.511cm" svg:x2="6.4cm" svg:y2="2.511cm">
+     </draw:line><draw:line draw:style-name="gr10" draw:text-style-name="P25" svg:x1="4.5cm" svg:y1="4.511cm" svg:x2="6.4cm" svg:y2="2.511cm">
       <text:p/>
-     </draw:line><draw:frame draw:style-name="gr11" draw:text-style-name="P25" svg:width="1.729cm" svg:height="1.227cm" svg:x="0.801cm" svg:y="1.011cm">
+     </draw:line><draw:frame draw:style-name="gr11" draw:text-style-name="P28" svg:width="1.729cm" svg:height="1.227cm" svg:x="0.801cm" svg:y="1.011cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(1,0,0)</text:span></text:p>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(0,0,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(1,0,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(0,0,0)</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:frame draw:style-name="gr12" draw:text-style-name="P25" svg:width="1.729cm" svg:height="1.227cm" svg:x="5.2cm" svg:y="3.211cm">
+     </draw:frame><draw:frame draw:style-name="gr12" draw:text-style-name="P28" svg:width="1.729cm" svg:height="1.227cm" svg:x="5.2cm" svg:y="3.211cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(1,2,0)</text:span></text:p>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(1,0,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(1,2,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(1,0,0)</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:frame draw:style-name="gr13" draw:text-style-name="P25" svg:width="1.729cm" svg:height="1.227cm" svg:x="5.276cm" svg:y="0.611cm">
+     </draw:frame><draw:frame draw:style-name="gr13" draw:text-style-name="P28" svg:width="1.729cm" svg:height="1.227cm" svg:x="5.276cm" svg:y="0.611cm">
       <draw:text-box>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(1,0,0)</text:span></text:p>
-       <text:p text:style-name="P23"><text:span text:style-name="T14">(0,0,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(1,0,0)</text:span></text:p>
+       <text:p text:style-name="P26"><text:span text:style-name="T20">(0,0,0)</text:span></text:p>
       </draw:text-box>
-     </draw:frame><draw:custom-shape draw:style-name="gr14" draw:text-style-name="P22" svg:width="0.301cm" svg:height="0.301cm" svg:x="4.099cm" svg:y="4.311cm">
+     </draw:frame><draw:custom-shape draw:style-name="gr14" draw:text-style-name="P25" svg:width="0.301cm" svg:height="0.301cm" svg:x="4.099cm" svg:y="4.311cm">
       <text:p/>
       <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
-     </draw:custom-shape><draw:custom-shape draw:style-name="gr15" draw:text-style-name="P22" svg:width="0.301cm" svg:height="0.301cm" svg:x="8.4cm" svg:y="2.311cm">
+     </draw:custom-shape><draw:custom-shape draw:style-name="gr15" draw:text-style-name="P25" svg:width="0.301cm" svg:height="0.301cm" svg:x="8.4cm" svg:y="2.311cm">
       <text:p/>
       <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
-     </draw:custom-shape><draw:custom-shape draw:style-name="gr16" draw:text-style-name="P22" svg:width="0.301cm" svg:height="0.301cm" svg:x="8.8cm" svg:y="2.311cm">
+     </draw:custom-shape><draw:custom-shape draw:style-name="gr16" draw:text-style-name="P25" svg:width="0.301cm" svg:height="0.301cm" svg:x="8.8cm" svg:y="2.311cm">
       <text:p/>
       <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
-     </draw:custom-shape><draw:path draw:style-name="gr17" draw:text-style-name="P22" svg:width="2.316cm" svg:height="0.521cm" draw:transform="skewX (-0.00279252680319094) rotate (-0.0815068760681357) translate (6.5cm 2.51058333333334cm)" svg:viewBox="0 0 2317 522" svg:d="m0 0c1190 1106 2317 112 2317 112">
+     </draw:custom-shape><draw:path draw:style-name="gr17" draw:text-style-name="P25" svg:width="2.316cm" svg:height="0.521cm" draw:transform="skewX (-0.00279252680319094) rotate (-0.0815068760681357) translate (6.5cm 2.51058333333334cm)" svg:viewBox="0 0 2317 522" svg:d="m0 0c1190 1106 2317 112 2317 112">
       <text:p/>
      </draw:path>
     </draw:g><text:span text:style-name="T9"/></text:p>
