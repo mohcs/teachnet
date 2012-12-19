@@ -10,7 +10,7 @@ import messages.chandymisrahaas.*;
  * Chandy, Misra und Haas zur verteilten Deadlockerkennung. Loesen Sie erkannte
  * Deadlocks durch eine einfache Behandlung auf.
  * 
- * @author Tim Strehlow, Bjoern Stabel, Friedrich Maiwald
+ * @author Tim Strehlow, Bjoern Stabel, Friedrich Maiwald (Gruppe 8)
  */
 
 public class ChandyMisraHaas  extends BasicAlgorithm {
