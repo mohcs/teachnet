@@ -1,0 +1,31 @@
+[graph]
+# number of nodes
+6
+
+# connections
+0,0-1,1
+0,1-2,0
+0-3
+0-4
+0-5
+1,0-2,1
+2-3
+3-4
+4-5
+5-1
+
+[network]
+teachnet.network.LinearDelayNetwork
+delay.min=java.lang.Double:1.0
+delay.max=java.lang.Double:2.0
+
+[stack.algorithms]
+algorithms.ChandyMisraHaas
+
+[stack.configs]
+0.node.id=java.lang.String:$node.id
+
+[inits]
+0,0,1.0
+1,0,1.0
+2,0,1.0
