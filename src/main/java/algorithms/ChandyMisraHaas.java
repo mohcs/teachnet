@@ -16,31 +16,45 @@ import messages.chandymisrahaas.*;
 public class ChandyMisraHaas  extends BasicAlgorithm {
 	
 	private int id;
+	private int numberOfAccess = 0;
 	String caption;
 	private Color color = Color.WHITE;
 	private boolean idle = false;
+	private int requestInterf;
 
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
-		caption = Integer.toString(id);
+		caption = Integer.toString(id) + " (" + numberOfAccess + ")";
 	}
 	
 	@Override
 	public void initiate() {
 		requestRessource();
-		if (id == 0) {
-			send(0, new ProbeMessage(id, id, (id+1)%3));
-		}
 	}
 
 	@Override
-	public void receive(int arg0, Object message) {
+	public void receive(int interf, Object message) {
+		if (message instanceof RequestMessage) {
+			if (idle) {
+				requestInterf = interf;
+				// hardcoded: node 0 starts deadlock detection
+				if (id == 0) {
+					send(0, new ProbeMessage(id, id, (id+1)%3));
+				}
+			}
+			else {
+				send(interf, new ReleaseMessage());
+			}
+		}
 		// probe message
-		if (message instanceof ProbeMessage && idle) {
+		else if (message instanceof ProbeMessage && idle) {
 			// detect deadlock
 			if (((ProbeMessage) message).getInitiator() == id) {
-				// resign ressource access
+				// resign/delay ressource access
 				releaseRessource();
+				// still waiting for ressource access
+				idle = true;
+				color = Color.RED;
 			}
 			// send probe message further
 			else {
@@ -48,9 +62,17 @@ public class ChandyMisraHaas  extends BasicAlgorithm {
 			}
 		}
 		// release ressource
-		else if (message instanceof Boolean) {
-			if ((Boolean)message == true && idle) {
+		else if (message instanceof ReleaseMessage && idle) {
+			// do and count ressource access
+			numberOfAccess++;
+			updateCaption();
+			// send only release message if to nodes still waiting
+			if (requestInterf > 0) {
 				releaseRessource();
+			}
+			else {
+				idle = false;
+				color = Color.WHITE;
 			}
 		}
 	}
@@ -59,7 +81,7 @@ public class ChandyMisraHaas  extends BasicAlgorithm {
 	 * request / block ressource
 	 */
 	private void requestRessource() {
-		send(0, false);
+		send(0, new RequestMessage(id));
 		color = Color.RED;
 		idle = true;
 	}
@@ -68,9 +90,16 @@ public class ChandyMisraHaas  extends BasicAlgorithm {
 	 * release ressource
 	 */
 	private void releaseRessource() {
-		send(0, true);
+		send(requestInterf, new ReleaseMessage());
 		color = Color.WHITE;
 		idle = false;
+		requestInterf = -1;
 	}
 	
+	/**
+	 * 
+	 */ 
+	private void updateCaption() {
+		caption = id + " (" + numberOfAccess + ")";
+	}
 }

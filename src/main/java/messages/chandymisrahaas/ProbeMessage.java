@@ -1,10 +1,14 @@
 package messages.chandymisrahaas;
 
+import java.awt.Color;
+
 public class ProbeMessage {
 	
 	private int initiator;
 	private int sender;
 	private int recipient;
+	
+	private final Color color = Color.ORANGE;
 	
 	public ProbeMessage(int initiator, int sender, int recipient) {
 		this.initiator = initiator;
