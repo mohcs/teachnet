@@ -29,8 +29,6 @@ public class ByzantineGenerals extends BasicAlgorithm {
 		this.id = (Integer) config.get("node.id");
 		// Z. Zt. wird einfach immer der Knoten mit der ID 0 der Leader
 		
-		System.out.println("interfaces(" + id + "): " + checkInterfaces());
-		
 		this.isLeader = (id == 0);
 		if (this.isLeader) {
 			this.color = Color.green;
