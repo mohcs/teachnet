@@ -65,7 +65,9 @@ public class ByzantineMessage {
 			stringPresentation += idPath[i];
 		}
 		stringPresentation += " -> " + value;
+		if (isCorrupt) {
+			stringPresentation += " (corrupt)";
+		}
 		return stringPresentation;
 	}
-
 }
