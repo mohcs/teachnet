@@ -19,6 +19,10 @@ public class ByzantineMessage {
 		children.add(msg);
 	}
 
+	public boolean containsChild(ByzantineMessage msg) {
+		return children.contains(msg);
+	}
+
 	public List<ByzantineMessage> getChildren() {
 		return children;
 	}

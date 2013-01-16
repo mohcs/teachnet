@@ -3,6 +3,7 @@ package algorithms;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import messages.byzantinegenerals.ByzantineMessage;
 import teachnet.algorithm.BasicAlgorithm;
@@ -13,6 +14,11 @@ import teachnet.algorithm.BasicAlgorithm;
  */
 
 public class ByzantineGenerals extends BasicAlgorithm {
+
+	static int randomOffset;
+	static {
+		randomOffset = (int) Math.round(Math.random() * 3);
+	}
 
 	private int id;
 	String caption;
@@ -35,19 +41,27 @@ public class ByzantineGenerals extends BasicAlgorithm {
 		this.currentValue = false;
 		this.receivedMsgs = new ArrayList<ByzantineMessage>();
 
-		this.isLoyal = ((this.id + 1) % 3 != 0);
+		this.isLoyal = ((this.id + randomOffset) % 4 != 0);
 		if (!this.isLoyal) {
 			this.color = Color.red;
 		}
+
+		if (!this.isLoyal && this.isLeader) {
+			this.color = Color.yellow;
+		}
+		System.out.println("getRounds() " + getRounds());
 		updateCaption();
 	}
 
 	@Override
 	public void initiate() {
 		if (this.isLeader) {
-			final ByzantineMessage msgToSend = new ByzantineMessage(
-					new int[] { this.id }, true, false);
 			for (int i = 0; i < checkInterfaces(); i++) {
+				boolean valueToSend = isLoyal ? true : new Random()
+						.nextBoolean();
+				final ByzantineMessage msgToSend = new ByzantineMessage(
+						new int[] { this.id }, valueToSend, false);
+				System.out.println(valueToSend);
 				send(i, msgToSend);
 			}
 		}
@@ -102,7 +116,7 @@ public class ByzantineGenerals extends BasicAlgorithm {
 				// 400 ist der wert für 10 generäle und 3 Verräter
 				// 25 für 7 generäle und 2 verräter
 				// 3 für 4 generäle und 1 verräter
-				if (this.receivedMsgs.size() == 25) {
+				if (this.receivedMsgs.size() == 26) {
 					buildMajority();
 				}
 			}
@@ -121,21 +135,21 @@ public class ByzantineGenerals extends BasicAlgorithm {
 	private void buildMajority() {
 		System.out.println("buildMajority()");
 		// Build tree
-		int trueCount = 0, falseCount = 0;
-		for (ByzantineMessage msg : getMsgsWithShortestPath()) {
-			buildParents(msg);
-			buildMajorityRecursively(msg);
-			if (msg.getMajority()) {
-				trueCount++;
-			} else {
-				falseCount++;
-			}
-		}
-		this.currentValue = (trueCount >= falseCount);
+		ByzantineMessage shortestPathMsg = getMsgWithShortestPath();
+
+		buildMajorityRecursively(shortestPathMsg);
+
+		this.currentValue = shortestPathMsg.getMajority();
+
+		if (this.id == 4)
+			printOutTree(shortestPathMsg);
+		System.out.println("receivedMsgs.size() " + receivedMsgs.size());
 		updateCaption();
 	}
 
 	private void buildMajorityRecursively(final ByzantineMessage msgToStart) {
+
+		buildParents(msgToStart);
 		if (msgToStart.getChildren().size() > 0) {
 			int trueCount = 0, falseCount = 0;
 			for (ByzantineMessage msg : msgToStart.getChildren()) {
@@ -145,6 +159,11 @@ public class ByzantineGenerals extends BasicAlgorithm {
 				} else {
 					falseCount++;
 				}
+			}
+			if (msgToStart.getValue()) {
+				trueCount++;
+			} else {
+				falseCount++;
 			}
 			msgToStart.setMajority(trueCount >= falseCount);
 
@@ -157,6 +176,9 @@ public class ByzantineGenerals extends BasicAlgorithm {
 	private void buildParents(final ByzantineMessage parentMessage) {
 		for (final ByzantineMessage msg : receivedMsgs) {
 			if (msg.getIdPath().length == parentMessage.getIdPath().length + 1) {
+				if (parentMessage.containsChild(msg)) {
+					break;
+				}
 				boolean isParent = true;
 				for (int i = 0; i < parentMessage.getIdPath().length; i++) {
 					if (parentMessage.getIdPath()[i] != msg.getIdPath()[i]) {
@@ -171,18 +193,29 @@ public class ByzantineGenerals extends BasicAlgorithm {
 		}
 	}
 
-	private List<ByzantineMessage> getMsgsWithShortestPath() {
+	private void printOutTree(ByzantineMessage msg) {
+		for (int i : msg.getIdPath())
+			System.out.print("\t");
+		for (int i : msg.getIdPath())
+			System.out.print(i + " ");
+		System.out.print(msg.getValue());
+		System.out.println();
+		for (ByzantineMessage mesg : msg.getChildren()) {
+			printOutTree(mesg);
+		}
+	}
+
+	private ByzantineMessage getMsgWithShortestPath() {
 		int shortestPathLength = Integer.MAX_VALUE;
-		List<ByzantineMessage> msgs = new ArrayList<ByzantineMessage>();
+		ByzantineMessage shortestPathMsg = null;
 		for (final ByzantineMessage msg : receivedMsgs) {
 			if (msg.getIdPath().length < shortestPathLength) {
+				shortestPathMsg = msg;
 				shortestPathLength = msg.getIdPath().length;
-				msgs = new ArrayList<ByzantineMessage>();
-			} else if (msg.getIdPath().length == shortestPathLength) {
-				msgs.add(msg);
 			}
 		}
-		return msgs;
+
+		return shortestPathMsg;
 	}
 
 	private int getRounds() {
