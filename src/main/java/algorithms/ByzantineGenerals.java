@@ -34,6 +34,7 @@ public class ByzantineGenerals extends BasicAlgorithm {
 	public void setup(java.util.Map<String, Object> config) {
 		this.id = (Integer) config.get("node.id");
 		// Z. Zt. wird einfach immer der Knoten mit der ID 0 der Leader
+
 		this.isLeader = (id == 0);
 		if (this.isLeader) {
 			this.color = Color.green;
@@ -103,20 +104,23 @@ public class ByzantineGenerals extends BasicAlgorithm {
 					// Message is sent to all nodes, except those that are
 					// already in the message's path
 					// relies on the interfaces to have the same id as the node
-					// they are conencted to
+					// they are connected to
 					if (i != interf && !contains(newIdPath, i)) {
 						send(i, msgToSend);
 					}
 				}
 			} else {
-				// TODO Check if lieutenant has received all messages
 
-				// wie berechnet man hier wann der general alle nachrichten
-				// erhalten hat?
-				// 400 ist der wert für 10 generäle und 3 Verräter
-				// 25 für 7 generäle und 2 verräter
-				// 3 für 4 generäle und 1 verräter
-				if (this.receivedMsgs.size() == 26) {
+				// Check if lieutenant has received all messages
+				// "dirty" hack, because checkInterfaces seems to return an
+				// unreliable number of interfaces
+				if ((checkInterfaces() == 3 || checkInterfaces() == 4)
+						&& this.receivedMsgs.size() == 3
+						|| (checkInterfaces() == 6 || checkInterfaces() == 7)
+						&& this.receivedMsgs.size() == 26
+						|| (checkInterfaces() == 9 || checkInterfaces() == 10)
+						&& this.receivedMsgs.size() == 401) {
+
 					buildMajority();
 				}
 			}
@@ -133,7 +137,7 @@ public class ByzantineGenerals extends BasicAlgorithm {
 	}
 
 	private void buildMajority() {
-		System.out.println("buildMajority()");
+		// System.out.println("buildMajority()");
 		// Build tree
 		ByzantineMessage shortestPathMsg = getMsgWithShortestPath();
 
