@@ -15,4 +15,5 @@ algorithms.TwoPhaseCommit
 0.network.size=java.lang.String:$network.size
 
 [inits]
-0,0,0.0
+3,0,0.0
+4,0,10.0

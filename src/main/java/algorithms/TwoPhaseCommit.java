@@ -3,8 +3,10 @@ package algorithms;
 import java.awt.Color;
 import java.util.Vector;
 
+import messages.twophasecommit.AbortCommandMessage;
 import messages.twophasecommit.AbortMessage;
 import messages.twophasecommit.AcknowledgeMessage;
+import messages.twophasecommit.CommitCommandMessage;
 import messages.twophasecommit.CommitMessage;
 import messages.twophasecommit.PrepareMessage;
 import messages.twophasecommit.VoteAbortMessage;
@@ -30,28 +32,53 @@ public class TwoPhaseCommit extends BasicAlgorithm {
 	String caption;
 	Color color;
 	Vector<Boolean> participants;
+	int ackCounter = 0;
 
 	@Override
 	public void setup(java.util.Map<String, Object> config) {
 		id = (Integer) config.get("node.id");
 		caption = "" + id;
-		color = Color.WHITE;
+
+		// hard coded: node 0 is the coordinator
+		if (id == 0) {
+			color = Color.BLACK;
+		} else {
+			color = Color.WHITE;	
+		}
 	}
 
 	@Override
 	public void initiate() {
-		for (int i = 0; i < checkInterfaces(); i++) {
-			send(i, new PrepareMessage());
+		// hardcoded: node 4 initiates an abort command
+		if (id % 4 == 0) {
+			send(0, new AbortCommandMessage());
+		} 
+		// hardcoded: other nodes initiate a commit command
+		else {
+			send(0, new CommitCommandMessage());
 		}
-		participants = new Vector<Boolean>(checkInterfaces() - 1);
-		color = Color.BLACK;
 	}
 
 	@Override
 	public void receive(int interf, Object message) {
-
+		// commit command from participant
+		if (message instanceof CommitCommandMessage) {
+			participants = new Vector<Boolean>(checkInterfaces() - 1);
+			color = Color.GRAY;
+			for (int i = 0; i < checkInterfaces(); i++) {
+				send(i, new PrepareMessage());
+			}
+		}
+		// abort command from participant
+		else if (message instanceof AbortCommandMessage) {
+			color = Color.GRAY;
+			for (int i = 0; i < checkInterfaces(); i++) {
+				send(i, new AbortMessage());
+			}
+		}
 		// prepare message from coordinator
-		if (message instanceof PrepareMessage) {
+		else if (message instanceof PrepareMessage) {
+			// success with a probability of 75%
 			double d = Math.random();
 			if (d < 0.75) {
 				send(interf, new VoteCommitMessage());
@@ -81,6 +108,14 @@ public class TwoPhaseCommit extends BasicAlgorithm {
 		else if (message instanceof AbortMessage) {
 			send(interf, new AcknowledgeMessage());
 			color = Color.WHITE;
+		}
+		// acknowledge message from participant
+		else if (message instanceof AcknowledgeMessage) {
+			ackCounter++;
+			if (ackCounter == checkInterfaces() - 1) {
+				ackCounter = 0;
+				color = Color.BLACK;
+			}
 		}
 	}
 
